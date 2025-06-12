@@ -1,0 +1,14 @@
+{
+  "name": "press-clone",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^3.0.0",
+    "@astrojs/i18n": "^1.0.0",
+    "astro": "^4.0.0"
+  }
+}

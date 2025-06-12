@@ -1,0 +1,31 @@
+---
+import fs from 'fs';
+import path from 'path';
+import BlogLayout from '../../layouts/BlogLayout.astro';
+
+const postsDir = './src/pages/es/posts';
+const postFiles = fs.readdirSync(postsDir);
+const posts = postFiles.map(name => ({
+  slug: name.replace(/\.mdx$/, ''),
+  title: name.replace(/-/g, ' ').replace(/\.mdx$/, '').replace(/\b\w/g, c => c.toUpperCase())
+}));
+---
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Notas de prensa - 10Pines</title>
+    <link href="/src/styles/global.css" rel="stylesheet" />
+  </head>
+  <body class="bg-white text-gray-900 font-sans max-w-3xl mx-auto p-6">
+    <h1 class="text-3xl font-bold mb-4">Notas de prensa</h1>
+    <ul class="space-y-2">
+      {posts.map(post => (
+        <li>
+          <a href={`/es/posts/${post.slug}`} class="text-teal-700 hover:underline">
+            {post.title}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+---
+const { lang, slug } = Astro.props;
+
+const otherLang = lang === 'es' ? 'en' : 'es';
+const otherLabel = lang === 'es' ? 'EN' : 'ES';
+const href = slug ? `/${otherLang}/posts/${slug}` : `/${otherLang}`;
+---
+<div class="text-right mb-4">
+  <a href={href} class="text-sm text-teal-600 hover:underline">
+    {otherLabel}
+  </a>
+</div>
