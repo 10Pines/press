@@ -1,8 +1,5 @@
 ---
-import { Astro } from 'astro';
-import fs from 'fs';
 import BlogLayout from '../../../layouts/BlogLayout.astro';
-
 const { slug } = Astro.params;
 const postModule = await import(`./${slug}.mdx`);
 const { frontmatter: data, default: Content } = postModule;

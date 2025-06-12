@@ -1,6 +1,5 @@
 ---
 const { lang, slug } = Astro.props;
-
 const otherLang = lang === 'es' ? 'en' : 'es';
 const otherLabel = lang === 'es' ? 'EN' : 'ES';
 const href = slug ? `/${otherLang}/posts/${slug}` : `/${otherLang}`;

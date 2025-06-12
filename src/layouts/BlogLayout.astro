@@ -1,14 +1,17 @@
 ---
-const { title } = Astro.props;
+import LanguageSwitcher from '../components/LanguageSwitcher.astro';
+const { title, lang, slug } = Astro.props;
 ---
-<html lang="es">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <title>{title}</title>
+    <link href="/src/styles/global.css" rel="stylesheet" />
   </head>
-  <body style="font-family: sans-serif; padding: 2rem; max-width: 800px; margin: auto;">
+  <body class="bg-white text-gray-900 font-sans max-w-3xl mx-auto p-6">
+    <LanguageSwitcher lang={lang} slug={slug} />
     <header>
-      <h1>{title}</h1>
+      <h1 class="text-3xl font-bold mb-4">{title}</h1>
     </header>
     <main>
       <slot />
